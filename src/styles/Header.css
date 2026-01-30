@@ -166,3 +166,13 @@ header {
     }
 
 }
+
+.logout-btn {
+    background-color: #b31010;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,92 @@
+/* 1. The Full Page Container - Centers everything */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6; /* Light grey background */
+  padding: 1rem;
+}
+
+/* 2. The White Card */
+.auth-card {
+  background: white;
+  width: 100%;
+  max-width: 400px; /* Keeps it nice and narrow */
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  text-align: center;
+}
+
+/* 3. Typography */
+.auth-card h2 {
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+  font-size: 1.8rem;
+}
+
+.auth-subtitle {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* 4. Form Inputs */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  background-color: #f9fafb;
+}
+
+/* Input Focus Effect */
+.auth-form input:focus {
+  border-color: #3b82f6; /* Blue border on focus */
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* 5. The Button */
+.auth-btn {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 1rem;
+  background-color: #2563eb; /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-btn:hover {
+  background-color: #1d4ed8; /* Darker blue on hover */
+}
+
+/* 6. Footer Link */
+.auth-footer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.auth-footer a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

@@ -1,39 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/CartItems.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { selectCartItems, selectCartTotalAmount } from '../features/cart/cartSlice'
 import { formatNumber } from '../utils/formatNumber'
-import { useDispatch } from 'react-redux'
 import { removeFromCart, increaseQuantity, reduceQuantity, clearCart } from '../features/cart/cartSlice'
 import { FaCreditCard, FaPaypal, FaTrash } from 'react-icons/fa'
 import { BsCashCoin } from "react-icons/bs";
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const CartItem = () => {
   const navigate = useNavigate();
-  const cartItems = useSelector(selectCartItems);
-
-  const [activebtn, setActivebtn] = useState('');
   const dispatch = useDispatch();
+
+  const { currentUser } = useSelector((state) => state.user);
+
+  const cartItems = useSelector(selectCartItems);
   const totalAmount = useSelector(selectCartTotalAmount);
+  const [activebtn, setActivebtn] = useState('');
+
   const deliveryFee = totalAmount * 10 / 100;
   const tax = totalAmount * 10 / 100;
   const total = totalAmount + deliveryFee + tax;
 
-
   const handleActiveBtn = (btn) => {
     setActivebtn(btn);
   }
-  return (
 
+ 
+  const handleCheckout = () => {
+    if (currentUser) {
+      navigate('/checkout');
+    } else {
+      navigate('/login');
+    }
+  }
+
+  return (
     <div className='cart-item'>
       <div className='items-container'>
         {cartItems.length > 0 ? <div className='item-header'>
           <p>Product</p>
           <p>Quantity</p>
           <p>Price</p>
-        </div> : <p style={{ textAlign: "center" }}>Cart is empty</p>}
+        </div> : <p style={{ textAlign: "center", color: "red" }}>Cart is empty</p>}
         {cartItems.map(item => (
           <div className='item' key={item.id}>
             <img src={item.image} alt={item.name} width={100} />
@@ -56,6 +65,7 @@ const CartItem = () => {
       </div>
 
       <div className='cart-info-container'>
+        
         <div className='coupon-container'>
           <h3>Coupon</h3>
           <hr />
@@ -70,6 +80,7 @@ const CartItem = () => {
           <p>Tax: {formatNumber(tax)}</p>
           <p>Total: {formatNumber(total)}</p>
         </div>
+
         <div className='payment-container'>
           <h3>Payment Methods</h3>
           <hr />
@@ -81,11 +92,14 @@ const CartItem = () => {
             <button className={`payment-button ${activebtn === 'paypal' ? 'active' : ''}`}
               onClick={() => handleActiveBtn('paypal')}><FaPaypal /></button>
           </div>
-          <button onClick={() => navigate('/checkout')}>Checkout</button>
+          
+          <button onClick={handleCheckout} disabled={cartItems.length === 0}>
+            Proceed to Checkout
+          </button>
         </div>
       </div>
     </div>
   )
 }
 
-export default CartItem 
+export default CartItem
