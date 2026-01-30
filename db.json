@@ -644,8 +644,148 @@
       "name": "jaris",
       "email": "jaris7989@gmail.com",
       "password": "1233333367",
-      "walletBalanceCents": 87904,
+      "walletBalanceCents": 73070.2,
       "orders": [
+        {
+          "id": 1769785703331,
+          "items": [
+            {
+              "id": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+              "name": "Ball",
+              "quantity": 1,
+              "image": "images/products/athletic-cotton-socks-6-pairs.jpg",
+              "rating": {
+                "stars": 4.5,
+                "count": 87
+              },
+              "priceCents": 1090,
+              "keywords": [
+                "socks",
+                "sports",
+                "apparel"
+              ]
+            },
+            {
+              "id": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+              "image": "images/products/intermediate-composite-basketball.jpg",
+              "name": "Basketball",
+              "rating": {
+                "stars": 4,
+                "count": 127
+              },
+              "priceCents": 2095,
+              "keywords": [
+                "sports",
+                "basketballs"
+              ],
+              "quantity": 1
+            },
+            {
+              "id": "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+              "image": "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+              "name": "Cotton T-Shirt (2 Pack)",
+              "rating": {
+                "stars": 4.5,
+                "count": 56
+              },
+              "priceCents": 799,
+              "keywords": [
+                "tshirts",
+                "apparel",
+                "mens"
+              ],
+              "quantity": 1
+            },
+            {
+              "id": "54e0eccd-8f36-462b-b68a-8182611d9add",
+              "image": "images/products/2-slot-toaster-white.jpg",
+              "name": "2-Slot Toaster",
+              "rating": {
+                "stars": 5,
+                "count": 2197
+              },
+              "priceCents": 1899,
+              "keywords": [
+                "toaster",
+                "kitchen",
+                "appliances"
+              ],
+              "quantity": 1
+            },
+            {
+              "id": "3ebe75dc-64d2-4137-8860-1f5a963e534b",
+              "image": "images/products/elegant-white-dinner-plate-set.jpg",
+              "name": "Dinner Plate Set",
+              "rating": {
+                "stars": 4,
+                "count": 37
+              },
+              "priceCents": 2067,
+              "keywords": [
+                "plates",
+                "kitchen",
+                "dining"
+              ],
+              "quantity": 1
+            }
+          ],
+          "total": 8745,
+          "date": "2026-01-30T15:08:23.331Z"
+        },
+        {
+          "id": 1769784359137,
+          "items": [
+            {
+              "id": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+              "name": "Ball",
+              "quantity": 2,
+              "image": "images/products/athletic-cotton-socks-6-pairs.jpg",
+              "rating": {
+                "stars": 4.5,
+                "count": 87
+              },
+              "priceCents": 1090,
+              "keywords": [
+                "socks",
+                "sports",
+                "apparel"
+              ]
+            },
+            {
+              "id": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+              "image": "images/products/intermediate-composite-basketball.jpg",
+              "name": "Basketball",
+              "rating": {
+                "stars": 4,
+                "count": 127
+              },
+              "priceCents": 2095,
+              "keywords": [
+                "sports",
+                "basketballs"
+              ],
+              "quantity": 1
+            },
+            {
+              "id": "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+              "image": "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+              "name": "Cotton T-Shirt (2 Pack)",
+              "rating": {
+                "stars": 4.5,
+                "count": 56
+              },
+              "priceCents": 799,
+              "keywords": [
+                "tshirts",
+                "apparel",
+                "mens"
+              ],
+              "quantity": 1
+            }
+          ],
+          "total": 6088.799999999999,
+          "date": "2026-01-30T14:45:59.137Z"
+        },
         {
           "id": 1769704429340,
           "items": [
