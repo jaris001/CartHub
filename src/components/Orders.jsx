@@ -1,7 +1,6 @@
-import React from 'react'
 import '../styles/Orders.css'
 import { useSelector } from 'react-redux'
-import { formatNumber } from '../utils/formatNumber' // Assuming you have this
+import { formatNumber } from '../utils/formatNumber'
 
 const Orders = () => {
   const currentUser = useSelector(state => state.user.currentUser)
@@ -16,7 +15,6 @@ const Orders = () => {
             {currentUser.orders.map(order => (
               <div key={order.id} className='order-card'>
                 
-                {/* 1. CARD HEADER: ID, Date, Status */}
                 <div className='card-header'>
                   <div className='header-left'>
                     <h2>Order #{order.id}</h2>
@@ -27,7 +25,6 @@ const Orders = () => {
                   </div>
                 </div>
 
-                {/* 2. CARD BODY: List of Items */}
                 <div className='card-body'>
                   {order.items.map(item => (
                     <div key={item.id} className='order-item'>
@@ -43,7 +40,6 @@ const Orders = () => {
                   ))}
                 </div>
 
-                {/* 3. CARD FOOTER: Total Price */}
                 <div className='card-footer'>
                   <div className='total-row'>
                     <span>Order Total</span>

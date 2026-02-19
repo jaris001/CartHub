@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// 1. API_URL
 const API_URL = 'http://localhost:3000';
 
-// function to create a new user
+const storedUser = localStorage.getItem('user');
+const initialUser = storedUser ? JSON.parse(storedUser) : null;
+
+
 export const signInUser = createAsyncThunk(
   'user/signInUser', 
   async ({name, email, password}, {rejectWithValue}) => {
@@ -97,25 +99,11 @@ export const updateUserBalance = createAsyncThunk(
   }
 )
 
-
 const initialState = {
-  currentUser: null,
+  currentUser: initialUser, // Load from localStorage on refresh
   isLoading: false,
   error: null,
 }
-
-// create slice name userSlice with createSlice
-// createSlice takes 3 parameters: name, initialState, reducers
-// reducers is an object that contains the actions that will syncronously update the state
-// define the actions that will update the state eg logout, updateProfile, etc.
-// extraReducers is an object that contains the actions that will asynchronously update the state
-// extraReducers is used to handle the async actions like signInUser, loginUser, etc. which takes a parameter
-// builder is a parameter that is passed to the extraReducers function and is used to define the async actions
-// addCase is a method that is used to define the async actions
-// pending is a method that is used to define the async actions when they are pending
-// fulfilled is a method that is used to define the async actions when they are fulfilled
-// rejected is a method that is used to define the async actions when they are rejected
-
 
 const userSlice = createSlice({
   name: "user",
@@ -123,8 +111,9 @@ const userSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.currentUser = null;
-      state.error = null
-      state.isLoading = null
+      state.error = null;
+      state.isLoading = false;
+      localStorage.removeItem('user'); // Clear localStorage on logout
     }
   },
   extraReducers: (builder) => {
@@ -135,6 +124,7 @@ const userSlice = createSlice({
     .addCase(signInUser.fulfilled, (state, action) => {
       state.isLoading = false
       state.currentUser = action.payload
+      localStorage.setItem('user', JSON.stringify(action.payload)); // Save on Signup
     })
     .addCase(signInUser.rejected, (state, action) => {
       state.isLoading = false
@@ -146,6 +136,7 @@ const userSlice = createSlice({
     .addCase(loginUser.fulfilled, (state, action) => {
       state.isLoading = false
       state.currentUser = action.payload
+      localStorage.setItem('user', JSON.stringify(action.payload)); // Save on Login
     })
     .addCase(loginUser.rejected, (state, action) => {
       state.isLoading = false
@@ -156,7 +147,8 @@ const userSlice = createSlice({
     })
     .addCase(updateUserBalance.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.currentUser = action.payload
+      state.currentUser = action.payload;
+      localStorage.setItem('user', JSON.stringify(action.payload)); 
     })
     .addCase(updateUserBalance.rejected, (state, action) => {
       state.isLoading = false;
@@ -164,7 +156,6 @@ const userSlice = createSlice({
     })
   }
 })
-
 
 export const { logout } = userSlice.actions;
 export default userSlice.reducer;

@@ -3,7 +3,7 @@ import ProductCard from './ProductCard'
 import '../styles/ProductList.css'
 import { InputContext } from '../context/InputContext'
 
-const ProductList = () => {
+const ProductList = ({ selectedCategory }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,10 +15,7 @@ const ProductList = () => {
       try {
         setIsLoading(true);
         const response = await fetch("http://localhost:3000/products");
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
+        if (!response.ok) throw new Error('Failed to fetch products');
         
         const data = await response.json();
         setProducts(data);
@@ -29,13 +26,17 @@ const ProductList = () => {
         setIsLoading(false);
       }
     }
-
     fetchData();
   }, []);
 
-  const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().includes(input.toLowerCase())
-  );
+  const filteredProducts = products.filter(product => {
+    
+    const matchesSearch = product.name.toLowerCase().includes(input.toLowerCase());
+    
+    const matchesCategory = selectedCategory === "All" || product.type === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
 
   if (isLoading) return <div className="loading-state">Loading products...</div>;
   if (error) return <div className="error-state">Error: {error}</div>;
@@ -49,7 +50,9 @@ const ProductList = () => {
           ))}
         </div>
       ) : (
-        <div className="no-results">No products found matching "{input}"</div>
+        <div className="no-results">
+          No products found in <strong>{selectedCategory}</strong> matching "{input}"
+        </div>
       )}
     </div>
   )

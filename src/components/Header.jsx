@@ -1,10 +1,10 @@
 import '../styles/Header.css'
 import { FaShoppingCart, FaSearch, FaHamburger } from 'react-icons/fa'
-import { NavLink, useNavigate } from 'react-router-dom' // Added useNavigate
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react'
-import { useSelector, useDispatch } from 'react-redux' // Added useDispatch
+import { useSelector, useDispatch } from 'react-redux' 
 import { selectCartItems } from '../features/cart/cartSlice'
-import { logout } from '../features/user/userSlice' // <--- IMPORT THIS
+import { logout } from '../features/user/userSlice'
 import { InputContext } from '../context/InputContext'
 import { formatNumber } from '../utils/formatNumber'
 
@@ -39,7 +39,6 @@ const Header = () => {
     <header>
       {showNav && <div className="overlay" onClick={() => setShowNav(false)} />}
       
-      {/* --- MOBILE MENU --- */}
       <div className='hamburger-container'>
         <FaHamburger className='hamburger'
           onClick={() => setShowNav(!showNav)}
@@ -66,24 +65,20 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* --- DESKTOP LEFT --- */}
+      
       <div className='left-section'>
         <NavLink to="/">
           <h2 style={{color: 'white', textDecoration: 'none'}}>Logo</h2>
         </NavLink>
       </div>
 
-      {/* --- DESKTOP CENTER --- */}
       <div className='center-section'>
         <input type="text" placeholder='Search' value={input} onChange={handleInput} />
         <FaSearch size={30} />
       </div>
 
-      {/* --- DESKTOP RIGHT --- */}
       <div className='right-section'>
         
-        {/* Conditional Desktop Links */}
         {currentUser ? (
           <>
             <span style={{color: 'white', marginRight: '10px'}}>Hi, {currentUser.name.split(' ')[0]}</span>
@@ -108,7 +103,6 @@ const Header = () => {
           </>
         )}
 
-        {/* Cart Icon (Always Visible) */}
         <div className={`cart ${cartItems.length > 0 ? 'active' : ''}`}>
           <p>{cartItems.length}</p>
           <NavLink className={({ isActive }) => isActive ? 'active' : ''} to="/cart">
