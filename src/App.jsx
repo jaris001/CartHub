@@ -8,6 +8,7 @@ import Orders from './components/Orders'
 import CheckoutSummary from './components/CheckoutSummary'
 import Signup from './pages/Auth/Signup'
 import Login from './pages/Auth/Login'
+import Dashboard from './pages/Dashboard'
 
 const MainLayout = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/cart" element={<CartItem />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/checkout" element={<CheckoutSummary />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
 
           {/* Group 2: Pages WITHOUT Header (Auth) */}

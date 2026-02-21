@@ -8,11 +8,9 @@ import { logout } from '../features/user/userSlice'
 import { InputContext } from '../context/InputContext'
 import { formatNumber } from '../utils/formatNumber'
 
-
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   
-  // 1. Get User State
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,11 +18,10 @@ const Header = () => {
   const cartItems = useSelector(selectCartItems);
   const { input, handleInput } = useContext(InputContext);
 
-  // 2. Handle Logout
   const handleLogout = () => {
     dispatch(logout());
-    setShowNav(false); // Close mobile menu if open
-    navigate('/login'); // Redirect to login page
+    setShowNav(false); 
+    navigate('/login'); 
   };
 
   useEffect(() => {
@@ -42,7 +39,7 @@ const Header = () => {
       <div className='hamburger-container'>
         <FaHamburger className='hamburger'
           onClick={() => setShowNav(!showNav)}
-          size={30} />
+          size={30} color="white" />
           
         <div className={`side-nav ${showNav ? 'show' : ''}`} >
           <div className='nav-links'>
@@ -51,8 +48,11 @@ const Header = () => {
             {/* Conditional Mobile Links */}
             {currentUser ? (
               <>
+                {/* ADDED DASHBOARD LINK HERE (Mobile) */}
+                <NavLink onClick={() => setShowNav(false)} to="/dashboard">Dashboard</NavLink>
                 <NavLink onClick={() => setShowNav(false)} to="/orders">Orders</NavLink>
-                <button className="nav-btn" onClick={handleLogout}>Logout</button>
+                <NavLink onClick={() => setShowNav(false)} to="/cart">Cart</NavLink>
+                <button className="nav-btn logout-btn" style={{marginTop: '10px'}} onClick={handleLogout}>Logout</button>
               </>
             ) : (
               <>
@@ -60,8 +60,6 @@ const Header = () => {
                 <NavLink onClick={() => setShowNav(false)} to="/signup">Sign Up</NavLink>
               </>
             )}
-            
-            <NavLink onClick={() => setShowNav(false)} to="/cart">Cart</NavLink>
           </div>
         </div>
       </div>
@@ -73,15 +71,23 @@ const Header = () => {
       </div>
 
       <div className='center-section'>
-        <input type="text" placeholder='Search' value={input} onChange={handleInput} />
-        <FaSearch size={30} />
+        <input type="text" placeholder='Search products...' value={input} onChange={handleInput} />
+        <FaSearch size={24} color="white" style={{cursor: 'pointer'}} />
       </div>
 
       <div className='right-section'>
         
         {currentUser ? (
           <>
-            <span style={{color: 'white', marginRight: '10px'}}>Hi, {currentUser.name.split(' ')[0]}</span>
+            {/* ADDED DASHBOARD LINK HERE (Desktop) */}
+            <NavLink 
+              className={({ isActive }) => isActive ? 'active' : ''} 
+              to="/dashboard" 
+              style={{marginRight: '10px', fontWeight: 'bold'}}
+            >
+              Hi, {currentUser.name.split(' ')[0]}
+            </NavLink>
+
             <span style={{color: '#4ade80', fontWeight: 'bold', marginRight: '10px'}}>
               {formatNumber(currentUser.walletBalanceCents)}
             </span>
