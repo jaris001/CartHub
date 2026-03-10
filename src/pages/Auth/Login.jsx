@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../../features/user/userSlice';
-import './auth.css';
+import '../Auth/Auth.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
