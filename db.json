@@ -944,6 +944,137 @@
           "date": "2026-02-19T02:27:20.854Z"
         }
       ]
+    },
+    {
+      "id": "234d",
+      "name": "james france",
+      "email": "isaacelijah1002@gmail.com",
+      "password": "1233333367",
+      "walletBalanceCents": 1468.3999999999996,
+      "orders": [
+        {
+          "id": 1772795490415,
+          "items": [
+            {
+              "id": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+              "name": "Ball",
+              "quantity": 1,
+              "image": "images/products/athletic-cotton-socks-6-pairs.jpg",
+              "rating": {
+                "stars": 4.5,
+                "count": 87
+              },
+              "priceCents": 1090,
+              "keywords": [
+                "socks",
+                "sports",
+                "apparel"
+              ]
+            },
+            {
+              "id": "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
+              "image": "images/products/blackout-curtain-set-beige.jpg",
+              "name": "Blackout Curtains",
+              "rating": {
+                "stars": 4.5,
+                "count": 232
+              },
+              "priceCents": 4599,
+              "keywords": [
+                "bedroom",
+                "curtains",
+                "home"
+              ],
+              "type": "Home & Kitchen",
+              "quantity": 1
+            },
+            {
+              "id": "3ebe75dc-64d2-4137-8860-1f5a963e534b",
+              "image": "images/products/elegant-white-dinner-plate-set.jpg",
+              "name": "Dinner Plate Set",
+              "rating": {
+                "stars": 4,
+                "count": 37
+              },
+              "priceCents": 2067,
+              "keywords": [
+                "plates",
+                "kitchen",
+                "dining"
+              ],
+              "type": "Home & Kitchen",
+              "quantity": 1
+            }
+          ],
+          "total": 8531.6,
+          "date": "2026-03-06T11:11:30.415Z"
+        }
+      ]
+    },
+    {
+      "id": "580c",
+      "name": "jaris musa",
+      "email": "musasuleiman7989@gmail.com",
+      "password": "1233333367",
+      "walletBalanceCents": 4418.6,
+      "orders": [
+        {
+          "id": 1772899776731,
+          "items": [
+            {
+              "id": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+              "name": "Ball",
+              "quantity": 2,
+              "image": "images/products/athletic-cotton-socks-6-pairs.jpg",
+              "rating": {
+                "stars": 4.5,
+                "count": 87
+              },
+              "priceCents": 1090,
+              "keywords": [
+                "socks",
+                "sports",
+                "apparel"
+              ]
+            },
+            {
+              "id": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+              "image": "images/products/intermediate-composite-basketball.jpg",
+              "name": "Basketball",
+              "rating": {
+                "stars": 4,
+                "count": 127
+              },
+              "priceCents": 2095,
+              "keywords": [
+                "sports",
+                "basketballs"
+              ],
+              "type": "Sports",
+              "quantity": 1
+            },
+            {
+              "id": "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+              "image": "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+              "name": "Cotton T-Shirt (2 Pack)",
+              "rating": {
+                "stars": 4.5,
+                "count": 56
+              },
+              "priceCents": 799,
+              "keywords": [
+                "tshirts",
+                "apparel",
+                "mens"
+              ],
+              "type": "Fashion",
+              "quantity": 1
+            }
+          ],
+          "total": 5581.4,
+          "date": "2026-03-07T16:09:36.731Z"
+        }
+      ]
     }
   ]
 }

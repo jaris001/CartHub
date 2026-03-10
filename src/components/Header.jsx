@@ -44,11 +44,9 @@ const Header = () => {
         <div className={`side-nav ${showNav ? 'show' : ''}`} >
           <div className='nav-links'>
             <NavLink onClick={() => setShowNav(false)} to="/">Home</NavLink>
-            
-            {/* Conditional Mobile Links */}
+          
             {currentUser ? (
               <>
-                {/* ADDED DASHBOARD LINK HERE (Mobile) */}
                 <NavLink onClick={() => setShowNav(false)} to="/dashboard">Dashboard</NavLink>
                 <NavLink onClick={() => setShowNav(false)} to="/orders">Orders</NavLink>
                 <NavLink onClick={() => setShowNav(false)} to="/cart">Cart</NavLink>
@@ -66,7 +64,7 @@ const Header = () => {
       
       <div className='left-section'>
         <NavLink to="/">
-          <h2 style={{color: 'white', textDecoration: 'none'}}>Logo</h2>
+          <h2 style={{color: 'white', textDecoration: 'none'}}>CartHub</h2>
         </NavLink>
       </div>
 
@@ -79,7 +77,6 @@ const Header = () => {
         
         {currentUser ? (
           <>
-            {/* ADDED DASHBOARD LINK HERE (Desktop) */}
             <NavLink 
               className={({ isActive }) => isActive ? 'active' : ''} 
               to="/dashboard" 
